@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Calculator!</title>
+        <link rel="stylesheet" type="text/css" href="CSS_assets/calculatorproject.css"/>
+        <script type="text/javascript" src="scripts/calculatorproject.js"></script>
+    </head>
+    <body>
+        <div id="row-2">
+            <a id="helpbtn" onclick='helpmenutoggle()'>Help</a>
+        </div>
+        <div id="helpmenu">
+            <p>
+            Hey user, wecome to my calculator website. 
+            This is a shot tutorial on how it works, first off we have what are called single functions and binary functions
+            single functions are those that require only one input like sin, cos, tan, log, ln, log2, n!, root, cbrt, 1/x, x<sup>2</sup>, x<sup>3</sup>, abs while log<sub>a</sub>N, Mod, nPr, nCr are binary functions.
+            To use a binary function your values must be arranged as comma seperated values using the , key note: once , key is pressed as at this version +,-,/,*,(,) and all single fxns do not work.
+            If values are well arranged e.g amodb = a,b ; nPr = n,r ; log<sub>a</sub>N = N,a the value would be shown on the big screen.
+            please also note that values on the second disply cannot be undone by the bksp button because bksp only works on values in the big display
+            </p>
+        </div>
+        <div class="inputs">
+        <input id="adis" type="text" value="" readonly>
+        <input id="dis" type="text" placeholder="0" readonly>
+        </div>
+        <!-- scientific calc btns-->
+            <div id="scientific">
+        <div id="modemenu">
+<!--            <span class="mode" id="degmode">Deg</span>-->
+            <span class="mode" id="hypmode" onclick='hypmodetoggle()'>Hyp</span>
+                </div>
+                <div id="scientificbtns">
+            <div id="row-2">
+                <a class="scibtn op2" onclick='singlefunction("x^2")'>x<sup>2</sup></a>
+                <a class="scibtn op4" onclick='binaryfxn("x^y")'>x<sup>y</sup></a>
+                <a class="scibtn op5" id="sine" onclick='trigfxn("sine")'>sin</a>
+                <a class="scibtn op5" id ="cosine" onclick='trigfxn("cosine")'>cos</a>
+                <a class="scibtn op5" id="tangent" onclick='trigfxn("tangent")'>tan</a>
+                <a class="scibtn op3" onclick='clearexp()'>CE</a>
+                <a class="scibtn op3" onclick='clearall()'>C</a>
+                <a class="scibtn op3" onclick='bkspc()'>bksp</a>
+                <a class="scibtn op1" onclick='operator("/")'>/</a>
+                </div>
+            
+            <div id="row-2" >
+                <a class="scibtn op2" onclick='singlefunction("x^3")'>x<sup>3</sup></a>
+                <a class="scibtn op4" onclick='binaryfxn("yroot")'>x<sup>y<sup>-1</sup></sup></a>
+                <a class="scibtn op5" id="Asine" onclick='trigfxn("Asine")'>sin<sup>-1</sup></a>
+                <a class="scibtn op5" id="Acosine" onclick='trigfxn("Acosine")'>cos<sup>-1</sup></a>
+                <a class="scibtn op5" id="Atangent" onclick='trigfxn("Atangent")'>tan<sup>-1</sup></a>
+                <a class="scibtn num" onclick='num("7")'>7</a>
+                <a class="scibtn num" onclick='num("8")'>8</a>
+                <a class="scibtn num" onclick='num("9")'>9</a>
+                <a class="scibtn op1" onclick='operator("*")'>*</a>
+                </div>
+            
+            <div id="row-2" >
+                <a class="scibtn op3" onclick='singlefunction("root")'>root</a>
+                <a class="scibtn op4" onclick='singlefunction("10^x")'>10<sup>x</sup></a>
+                <a class="scibtn op4" onclick='singlefunction("log")'>log</a>
+                <a class="scibtn op4" onclick='binaryfxn("alogn")'>log<sub>a</sub>N</a>
+                <a class="scibtn op4" onclick='binaryfxn("mod")'>Mod</a>
+                <a class="scibtn num" onclick='num("4")'>4</a>
+                <a class="scibtn num" onclick='num("5")'>5</a>
+                <a class="scibtn num" onclick='num("6")'>6</a>
+                <a class="scibtn op1" onclick='operator("-")'>-</a>
+                </div>
+              
+            <div id="row-2" >
+                <a class="scibtn op2" onclick='singlefunction("1/x")'>1/x</a>
+                <a class="scibtn op4" onclick='singlefunction("e^x")'>e<sup>x</sup></a>
+                <a class="scibtn op6" onclick='singlefunction("ln")'>ln</a>
+                <a class="scibtn op6" onclick='singlefunction("log2")'>log<sub>2</sub>N</a>
+                <a class="scibtn op6" onclick='singlefunction("abs")'>abs</a>
+                <a class="scibtn num" onclick='num("1")'>1</a>
+                <a class="scibtn num" onclick='num("2")'>2</a>
+                <a class="scibtn num" onclick='num("3")'>3</a>
+                <a class="scibtn op1" onclick='operator("+")'>+</a>
+                </div>
+                
+            <div id="row-2" >
+                <a class="scibtn op3" onclick='singlefunction("cbrt")'>cbrt</a>
+                <a class="scibtn op3" onclick='PIval()'>Pi</a>
+                <a class="scibtn op4" onclick='singlefunction("!")'>n!</a>
+                <a class="scibtn op7" onclick='bracketOpen()'>(</a>
+                <a class="scibtn op7" onclick='bracketClose()'>)</a>
+                <a class="scibtn op2" onclick='negate()'>+/-</a>
+                <a class="scibtn num" onclick='num("0")'>0</a>
+                <a class="scibtn" id="point" onclick='dp()'>.</a>
+                <a class="scibtn" id="equal" onclick='equalto()'>=</a>
+                </div>
+                <div id="row-2">
+                    <a class="scibtn op4" onclick='binaryfxn("nPr")'>nPr</a>
+                    <a class="scibtn op4" onclick='binaryfxn("nCr")'>nCr</a>
+                    <a class="scibtn op4" onclick='mean()'>mean</a>
+                    <a class="scibtn op4" onclick='singlefunction("int")'>int</a>
+                    <a class="scibtn op7" onclick='comma()'>,</a>
+                </div>
+            </div>
+            </div> 
+    </body>
+</html>
